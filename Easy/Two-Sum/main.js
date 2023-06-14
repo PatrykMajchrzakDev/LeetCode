@@ -32,10 +32,15 @@
  */
 var twoSum = function (nums, target) {
   for (let i = 0; i < nums.length; i++) {
-    if (nums.includes(target - nums[i])) {
-      return [nums[i], nums.indexOf(target - nums[i])];
-    } else {
-      continue;
+    for (let j = 0; j < nums.length; j++) {
+      if (
+        nums[i] + nums[j] === target &&
+        nums.indexOf(nums[i]) !== nums.lastIndexOf(nums[j])
+      ) {
+        return [nums.indexOf(nums[i]), nums.lastIndexOf(nums[j])];
+      } else {
+        continue;
+      }
     }
   }
 };
