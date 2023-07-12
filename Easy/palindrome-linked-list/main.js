@@ -24,16 +24,16 @@ var isPalindrome = function (head) {
     current = current.next;
   }
 
-  if (arr.length % 2 === 1 || arr.length < 4) {
-    return false;
-  }
-
-  for (let i = 0; i < arr.length / 2; i++) {
-    if (arr[i] === arr[arr.length - 1 - i]) {
-      continue;
-    } else {
+  // Check if the array is a palindrome
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    if (arr[left] !== arr[right]) {
       return false;
     }
+    left++;
+    right--;
   }
+
   return true;
 };
